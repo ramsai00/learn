@@ -1,0 +1,27 @@
+
+
+-Go is all about Types.We Create Types
+
+1.Encapsulation:
+	a.State(field)
+	b.behaviour(method)
+	c.exported & unExported(viewable or not viewable)
+
+2.Reuseablity:
+	a.inheritance("embedding type")
+
+3.Polymorphism:
+	a.interfaces
+
+In the place of classes you create a TYPE.
+we can create  any type
+
+ex :
+	type foo int
+	var y foo
+	func main(){
+	y = 42
+	fmt.Println("%T",y)		//type of-> package.foo
+	}
+
+-> GO FOR READABILITY FIRST.
