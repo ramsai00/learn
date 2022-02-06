@@ -1,0 +1,22 @@
+
+GO <1.13 = No Modules available.
+GO = 1.13 = modules beta
+GO > 1.14 = Modules are the standard managing dependencies
+
+GO < 1.8 = GOPATH must be defined
+GO = 1.18 = Default.GOPATH ~/go
+
+GOROOT
+-------Go installation folder
+
+GOPATH
+------GO Workspaces
+------src
+          github.com
+                username
+                    repo
+-------pkg
+           mod
+             github.com
+                mux
+-------bin
