@@ -1,0 +1,105 @@
+What is JSON?
+
+First JSON(JavaScript Object Notation) everyone should know this, it's just key value pairs in JS and it's easier
+to transmit than XML. It's a human readable, machine transferable and generally the preferred way to
+to send and receive data via REST APIs. It's not the most efficient way but it's the web-developer preferred way.
+
+
+
+
+What does 'Marshaling' mean?
+marshaling is the process of transforming the memory representation of an object to a data format suitable for storage
+or transmission, and it is typically used when data must be moved between different parts of a computer program
+or from one program to another.
+
+The inverse of marshaling is called unmarshalling or demarshaling.
+
+
+
+
+Marshal function in JSON Package
+When we want to convert a Golang struct into a JSON object, we use the json.Marshal. Marshal is Golangs way of saying
+"encode/convert to JSON Object".
+
+
+
+
+Exposed vs not Exposed fields
+As with all structs in Go, it’s important to remember that only fields with a capital first letter are visible to
+external programs/packages like the JSON Marshaller. Meaning that if you don't capitalize the first letter it won't
+get exposed when you convert it to JSON using the json.Marshall() function. This is because you cannot access that
+field outside of the struct, remember if it's not a capital first letter it cannot be accessed outside of the struct.
+
+
+
+
+Meaning of Interface{}
+If you’re not familiar an empty interface{} is a way of defining a variable in Go as “this could be anything”.
+At runtime Go will then allocate the appropriate memory to fit whatever you decide to store in it.
+
+
+
+
+JSON Marshall
+The function signature for json.marshal
+
+func Marshal(v interface{}) ([]byte, error)
+
+it takes a v interface{}, which can be 'any' go type. Basically everything from a struct to a primitive
+it will take it and try to convert it to a JSON object. It returns two things.
+
+1.  a slice of byte []byte, containing the literal string that is the JSON object.
+2. And error, letting you know if anything went wrong
+
+Typically you give the JSON marshal function a pre-filled struct, or a raw string literal formatted to JSON
+
+
+
+
+
+
+Unmarshal function in the JSON package
+
+When we want to convert a JSON Object into a Golang struct, we use the json.Unmarshal. Umarshal is Golangs way of saying "parse this JSON object into a valid Golang struct".
+
+The function signature for unmarshal
+
+func Unmarshal(data []byte, v interface{}) error
+
+unmarshal takes the following parameters:
+1. a slice of bytes (This a raw string, this is the JSON object that you want to parse)
+2. A pointer to a struct to parse the JSON into
+
+Unmarshal returns,
+
+A error if anything went wrong with parsing.
+
+
+
+
+
+
+Relationship between strings and byte slices
+
+Recall that a string in Go is just a sequence of bytes. A byte is just an alias(type byte uint8) for a a uint8.
+So the underpinnings of a string is a sequence of bytes. This is why we can easily do a conversion on a sequence of
+bytes and turn it into a string and vice versa. So when the marshal function returns a sequence of bytes,
+remember it's just a raw UTF-8 string.
+
+
+
+
+
+/*
+Additional readings if you want to really dig in:
+
+https://eager.io/blog/go-and-json/
+
+https://yourbasic.org/golang/json-example/
+
+https://medium.com/go-walkthrough/go-walkthrough-encoding-json-package-9681d1d37a8f
+
+And finally after you read those, the documentation for JSON package will make so much more sense!
+
+https://golang.org/pkg/encoding/json/#Marshal
+*/

@@ -20,7 +20,7 @@ func main() {
 
 	p2 := person{
 		First: "satya",
-		Last:  "venkata",
+		Last:  "venkat",
 		Age:   21,
 	}
 
