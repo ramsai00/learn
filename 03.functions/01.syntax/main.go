@@ -13,7 +13,7 @@ func (r receiver) identifier(parameter) (return){
 
 func main() {
 	foo()
-	bar("ram")                           //basic
+	bar("ram")                           //marshal
 	s1 := simple("hi")                   //argument
 	fmt.Println(s1)                      //return
 	x, y := mulitiple("satya", "venkat") //multiple return
